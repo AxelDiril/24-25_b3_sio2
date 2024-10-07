@@ -15,6 +15,10 @@ Route::get('/hello', function(){
     return 'Bonjour le monde !';
 });
 
+Route::get('/schnaps', function(){
+    return view('schnaps');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
