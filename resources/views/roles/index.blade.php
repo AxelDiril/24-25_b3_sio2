@@ -1,6 +1,8 @@
 @extends('layouts.default')
 
 @section('contenu')
+<a href="{{ route('roles.create') }}"
+            class="btn btn-primary btn-sm">Create</a>
 <div class="container mt-5">
     <div class="row">
       @foreach ($roles as $role)
@@ -16,12 +18,16 @@
               <div class="row">
                 <div class="col-sm">
                   <a href="{{ route('roles.edit', $role->id) }}"
-            class="btn btn-primary btn-sm">Edit</a>
+                  class="btn btn-primary btn-sm">Edit</a>
+                </div>
+                <div class="col-sm">
+                  <a href="{{ route('roles.show', $role->id) }}"
+                  class="btn btn-primary btn-sm">Show</a>
                 </div>
                 <div class="col-sm">
                     <form action="{{ route('roles.destroy', $role->id) }}" method="role">
-                      @csrf
-                      @method('DELETE')
+                    @csrf
+                    @method('DELETE')
                       <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
                 </div>
